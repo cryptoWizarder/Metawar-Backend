@@ -1,0 +1,18 @@
+{% extends "layout.view.njk" %}
+{% block content %}
+<tr>
+  <td style="padding: 0 2.5em; text-align: center; padding-bottom: 3em;">
+    <div class="text">
+      <h2>Confirm your email</h2>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td style="padding: 0px 30px;">
+    <h3>You are just one step away. Please enter this code to verify your email address:</h3>
+    <p style="text-align: center;font-size: 2rem;letter-spacing: 1rem;">{{code}}</p>
+    <p>Or click this link</p>
+    <a href="{{link}}">{{link}}<a/>
+  </td>
+</tr>
+{% endblock %}

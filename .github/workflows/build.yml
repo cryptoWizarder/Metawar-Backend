@@ -1,0 +1,31 @@
+name: Node CI
+
+on: [push,pull_request]
+
+jobs:
+  Build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  node:lts-alpine
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run linter
+      run: |
+        npm ci
+        npm run build
+        npx prisma generate
+      env:
+        CI: true
+        NODE_ENV: test
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build
+        retention-days: 30
+        path: |
+          bundle.min.*
+          dist
+          package.json*
+          node_modules/.prisma

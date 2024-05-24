@@ -1,0 +1,7 @@
+*
+!.swcrc
+!scripts
+!src
+!package*.json
+!tsconfig.json
+!prisma

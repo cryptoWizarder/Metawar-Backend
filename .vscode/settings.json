@@ -1,0 +1,9 @@
+{
+  "files.eol": "\n",
+  "files.exclude": {
+    "db": true
+  },
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "json.schemas": []
+}

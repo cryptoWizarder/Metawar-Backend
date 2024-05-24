@@ -1,0 +1,16 @@
+{
+  "jsc": {
+    "baseUrl": "./src",
+    "parser": {
+      "syntax": "typescript"
+    },
+    "target": "esnext",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  },
+  "module": {
+    "type": "commonjs"
+  },
+  "sourceMaps": true
+}

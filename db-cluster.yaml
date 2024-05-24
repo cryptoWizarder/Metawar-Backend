@@ -1,0 +1,44 @@
+services:
+  mongo0:
+    container_name: mongo0
+    image: mongo
+    volumes:
+      - ./db/mongo-0:/data/db
+    networks:
+      - app
+    restart: always
+    ports:
+      - 27017:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+    healthcheck:
+      test: echo "rs.initiate({_id:'dbrs',version:1,members:[{_id:0,host:'mongo0:27017',priority:2},{_id:1,host:'mongo1:27017',priority:1},{_id:2,host:'mongo2:27017',priority:1}]},{force:true}).ok || rs.status().ok" | mongosh --quiet
+      interval: 10s
+      start_period: 30s
+
+  mongo1:
+    container_name: mongo1
+    image: mongo
+    volumes:
+      - ./db/mongo-1:/data/db
+    networks:
+      - app
+    restart: always
+    ports:
+      - 27031:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+
+  mongo2:
+    container_name: mongo2
+    image: mongo
+    volumes:
+      - ./db/mongo-2:/data/db
+    networks:
+      - app
+    restart: always
+    ports:
+      - 27030:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+
+networks:
+  app:
+    driver: bridge

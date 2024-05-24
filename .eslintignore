@@ -1,0 +1,9 @@
+**/node_modules/*
+db/
+coverage/
+public/
+assets/
+.nyc_output/
+dist/
+bundle.min.js
+scripts/

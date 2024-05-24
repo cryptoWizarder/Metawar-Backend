@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{title}}</title>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <link rel="apple-touch-icon" href="/logo192.png"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <style>
+    div.content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #202020;
+      font-family: Brutal, sans-serif;
+      max-width: 520px;
+      padding: 30px;
+      border-radius: 11px;
+      margin: auto;
+      margin-top: 70px;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    body {
+      background-color: rgba(0, 0, 0, 0.93);
+    }
+  </style>
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>
